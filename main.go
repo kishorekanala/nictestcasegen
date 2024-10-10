@@ -91,6 +91,15 @@ func registerAPIKey() (*genai.Client, context.Context) {
 	return client, ctx
 }
 
+// generateAndConfigureModel creates and configures a generative model using the provided client and model configuration.
+// It sets various parameters such as temperature, top-p, top-k, and maximum output tokens.
+//
+// Parameters:
+//   - client: A pointer to a genai.Client instance used to create the generative model.
+//   - modelConfig: A ModelConfig struct containing the configuration details for the model.
+//
+// Returns:
+//   - A pointer to a genai.GenerativeModel instance that has been configured with the specified parameters.
 func generateAndConfigureModel(client *genai.Client, modelConfig ModelConfig) *genai.GenerativeModel {
 	// Create a new model
 	model := client.GenerativeModel(modelConfig.name)
